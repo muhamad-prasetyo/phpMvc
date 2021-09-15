@@ -26,4 +26,25 @@ class Murid_model {
         $this->db->bind('id', $id);
         return $this->db->single();
     }
+
+    public function tambahDataMurid($data)
+    {
+
+        $query = "INSERT INTO murid
+                    VALUES
+                    ('', :nama, :nim, :email, :materi)";
+       
+       
+       $this->db->query($query);
+       $this->db->bind('nama', $data['nama']);
+       $this->db->bind('nim', $data['nim']);
+       $this->db->bind('email', $data['email']);
+       $this->db->bind('materi', $data['materi']);
+       
+       $this->db->execute();
+      
+       return $this->db->rowCount();
+       
+       
+    }
 }
