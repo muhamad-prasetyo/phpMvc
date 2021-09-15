@@ -3,14 +3,16 @@
         <div class="col-6">
             <h3>Daftar Murid</h3>
 
-                <?php foreach($data['mrd'] as $mrd) : ?>
-                    <ul>
-                        <li><?= $mrd['nama']; ?></li>
-                        <li><?= $mrd['nim']; ?></li>
-                        <li><?= $mrd['email']; ?></li>
-                        <li><?= $mrd['materi']; ?></li>
-                    </ul>
+            <ul class="list-group">
+                <?php foreach((array)$data['mrd'] as $murid) : ?>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <?= $murid['nama']; ?>
+                        <a href="<?= BASEURL; ?>/murid/detail/<?= $murid['id']; ?>" class="badge badge-info">detail</a>
+                    </li>
                 <?php endforeach; ?>
+            </ul>
+                   
+        
         </div>
     </div>
 </div>
