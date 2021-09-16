@@ -1,5 +1,9 @@
 <?php 
 
+    // cek apakah tidak ada session_id maka jalankan sessionnya 
+    if( !session_id() ) session_start();
+
+    
 require_once '../app/init.php';
 
 
