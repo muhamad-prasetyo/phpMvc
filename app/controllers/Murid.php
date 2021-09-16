@@ -37,4 +37,23 @@ class Murid extends Controller{
             exit;
         }
     }
+
+    public function hapus($id)
+    {
+        if( $this->model('Murid_model')->hapusDataMurid($id) > 0 ) {
+            
+            // set message flashnya 
+            Flasher::setFlash('Berhasil', 'dihapus', 'success');
+
+            header('Location: ' . BASEURL . '/murid');
+            exit;
+        } else {
+            // jika gagal 
+            // set message flashnya 
+            Flasher::setFlash('Gagal', 'dihapus', 'danger');
+
+            header('Location: ' . BASEURL . '/murid');
+            exit;
+        }
+    }
 }
