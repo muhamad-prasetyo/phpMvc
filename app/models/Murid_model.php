@@ -18,7 +18,7 @@ class Murid_model {
         return  $this->db->resultSet();
         
     }
-
+    
     public function getMuridById($id)
     {
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
@@ -57,5 +57,31 @@ class Murid_model {
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+
+    public function editDataMurid($data)
+    {
+
+        $query = "UPDATE murid SET 
+                    nama = :nama,
+                    nim = :nim,
+                    email = :email,
+                    materi = :materi
+                WHERE id = :id ";
+       
+       
+       $this->db->query($query);
+       $this->db->bind('nama', $data['nama']);
+       $this->db->bind('nim', $data['nim']);
+       $this->db->bind('email', $data['email']);
+       $this->db->bind('materi', $data['materi']);
+       $this->db->bind('id', $data['id']);
+       
+       $this->db->execute();
+      
+       return $this->db->rowCount();
+       
+       
     }
 }

@@ -56,4 +56,28 @@ class Murid extends Controller{
             exit;
         }
     }
+
+    public function getedit()
+    {
+     echo json_encode($this->model('Murid_model')->getMuridById($_POST['id']));
+    }
+
+    public function edit()
+    {
+        if( $this->model('Murid_model')->editDataMurid($_POST) > 0 ) {
+            
+            // set message flashnya 
+            Flasher::setFlash('Berhasil', 'diedit', 'success');
+
+            header('Location: ' . BASEURL . '/murid');
+            exit;
+        } else {
+            // jika gagal 
+            // set message flashnya 
+            Flasher::setFlash('Gagal', 'diedit', 'danger');
+
+            header('Location: ' . BASEURL . '/murid');
+            exit;
+        }
+    }
 }
