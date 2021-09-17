@@ -7,16 +7,32 @@
         </div>
     </div>
 
+    <div class="row mb-3">
+      <div class="col-lg-6">
+         <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
+        Tambah Data Murid
+        </button>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-lg-6">
+         <!-- Button trigger modal -->
+        <form action="<?= BASEURL; ?>/murid/cari" method="POST">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Cari Murid" name="keyword" id="keyword" autocomplete="off">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary" type="submit" id="tombolCari">Cari</button>
+                </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
 
     <div class="row">
         <div class="col-lg-6">
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
-        Tambah Data Murid
-        </button>
-        <br><br>
-
             <h3>Daftar Murid</h3>
             <ul class="list-group">
                 <?php foreach((array)$data['mrd'] as $murid) : ?>

@@ -80,4 +80,14 @@ class Murid extends Controller{
             exit;
         }
     }
+
+
+    public function cari()
+    {
+        $data['judul'] = 'Daftar Murid';
+        $data['mrd'] = $this->model('Murid_model')->cariDataMahasiswa();
+        $this->view('templates/header');
+        $this->view('murid/index', $data);
+        $this->view('templates/footer');
+    }
 }
